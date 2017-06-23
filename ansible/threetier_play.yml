@@ -1,0 +1,62 @@
+---
+- hosts: bastion
+  remote_user: root
+  tasks:
+
+  - name: Run the equivalent of 'apt-get update'
+    apt: 
+      update_cache: yes
+    become: true
+
+  - name: install Ansible
+    apt:
+      name: ansible
+      update_cache: yes
+    become: true
+
+  - name: install pip
+    apt:
+      name: python-pip
+      update_cache: yes
+    become: true
+
+  - name: install boto3
+    pip:
+      name: "{{ item }}"
+    with_items: 
+      - boto3
+    become: true
+
+- hosts: appservers
+  remote_user: root
+  tasks:
+
+  - name: Run the equivalent of 'apt-get update'
+    apt: 
+      update_cache: yes
+    become: true
+
+  - name: install Ansible
+    apt:
+      name: ansible
+      update_cache: yes
+    become: true
+
+  - name: install pip
+    apt:
+      name: python-pip
+      update_cache: yes
+    become: true
+
+  - name: install boto3
+    pip:
+      name: "{{ item }}"
+    with_items: 
+      - boto3
+    become: true
+
+  - name: install mysql-client
+    apt:
+      name: mysql-client
+      update_cache: yes
+    become: true

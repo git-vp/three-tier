@@ -1,0 +1,9 @@
+ssh -i mykey ubuntu@ip-address
+
+
+In EC2 instance:
+> sudo apt-get install mysql-client
+
+> mysql -u root -h <host-name> -p 'abcdefgh'
+
+mysql> show databases; 
