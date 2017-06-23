@@ -1,0 +1,5 @@
+This project demonstrates construction of a standard 3-tier infrastructure on AWS using Terraform. Using the dynamically generated hosts a very simple Ansible playbook is used to provision some compute instances.
+
+The approach follows some of the Hashi-Corp recommended best practices.
+
+This code base uses AWS credentials from the profile and it also assumes that the keys required for various hosts are setup in /vagrant/Workspace/Keys/ folder.
